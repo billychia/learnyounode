@@ -1,11 +1,8 @@
-//console.log(process.argv)
-var temp = process.argv,
+var env = process.argv.slice(2),
     sum = 0,
     x = 0;
-temp.shift();
-temp.shift();
-//console.log(temp);
-temp.forEach(function (x) {
+env.forEach(function (x) {
     sum += Number(x);
 }, x);
 console.log(sum);
+
