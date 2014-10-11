@@ -1,11 +1,22 @@
-var fs = require('fs');
-fs.readFile(process.argv[2], cb);
+// MAKE IT MODULAR
+// Exercise 6 of 13
 
-function cb (err, data) {
-    if (!err) {
-        var str = data.toString().split('\n').length - 1;
-        console.log(str);
-    } else {
-        console.log('error: ', err);
-    }
-}; 
+
+// FILTERED LS
+// Exercise 5 of 13
+var fs = require('fs');
+var path = require('path');
+var dir = process.argv[2];
+var ext = process.argv[3];
+
+fs.readdir(dir, function (err, files) {
+    if (err) { console.log("error:", err); return };
+
+    files.forEach(function (file) {
+        if (path.extname(file) === "." + ext) {
+            console.log(file);
+        }
+    });
+});
+
+
