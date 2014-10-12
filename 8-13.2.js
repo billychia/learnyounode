@@ -30,7 +30,7 @@ function callback (response) {
 		data = data.toString()
 		console.log(data.length);
 		console.log(data);
-	}));
+	}))
 
 	response.on("error", function (err) { 
 		console.error("problem with response: " + err.message); 
