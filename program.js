@@ -1,14 +1,11 @@
-// TIME SERVER
-// Exercise 10 of 13
+//  HTTP FILE SERVER
+//  Exercise 11 of 13
 
 /* Requirements
- * Write a TCP time server!
- * Your server should listen to TCP connections on the port provided by the first argument to your program. 
- * For each connection you must write the current date & 24 hour time in the format:
- *  "YYYY-MM-DD hh:mm"
- * Followed by a newline character. 
- * Month, day, hour and minute must be zero-filled to 2 integers. 
- * For example: "2013-07-06 17:42"
+ * Write an HTTP server
+ * serve the same text file for each request it receives
+ * server should listen on the port provided by the first argument to your program.
+ * location of the file to serve as the second command-line argument. You must use the fs.createReadStream() method to stream the file contents to the response.
  */ 
 
 var net = require('net');
