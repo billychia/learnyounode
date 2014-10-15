@@ -5,16 +5,19 @@
  * Write an HTTP server
  * serve the same text file for each request it receives
  * server should listen on the port provided by the first argument to your program.
- * location of the file to serve as the second command-line argument. You must use the fs.createReadStream() method to stream the file contents to the response.
+ * location of the file to serve as the second command-line argument. 
+  * You must use the fs.createReadStream() method to stream the file contents to the response.
  */ 
 
-var net = require('net');
-var strftime = require('strftime');
-var portNumber = process.argv[2];
+var http = require('http');
+var fs = require('fs');
+var portNumber = Number(process.argv[2]);
+var file = process.argv[3];
 
-var server = net.createServer(function (socket) {
-	data = strftime('%F %H:%M') + '\n';
-	socket.end(data);
+var server = http.createServer(function (request, response) {
+	var src = fs.createReadStream(file);
+	var dst = response;
+	src.pipe(dst);
 })
 
 server.listen(portNumber);
